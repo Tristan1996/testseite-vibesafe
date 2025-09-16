@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meine einfache Website</title>
+  <meta name="description" content="Eine minimalistische, schnelle, mobilfreundliche Website für GitHub Pages." />
+  <meta name="theme-color" content="#0ea5e9" />
+  <style>
+    :root{
+      --bg:#0b1020;         /* Hintergrund */
+      --card:#121933;       /* Kartenhintergrund */
+      --text:#e5e7eb;       /* Textfarbe */
+      --muted:#a8b3cf;      /* Sekundärtext */
+      --brand:#0ea5e9;      /* Akzentfarbe */
+      --brand-2:#22d3ee;    /* 2. Akzent */
+      --ring:rgba(34,211,238,.35);
+      --radius:18px;
+      --shadow:0 10px 30px rgba(2,6,23,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text); background:radial-gradient(1200px 600px at 10% -10%, rgba(34,211,238,.08), transparent),
+                       radial-gradient(900px 500px at 110% 10%, rgba(14,165,233,.08), transparent),
+                       var(--bg);
+    }
+    .container{max-width:1100px; margin:0 auto; padding:24px}
+    header{position:sticky; top:0; backdrop-filter:saturate(1.2) blur(10px); background:rgba(11,16,32,.6); border-bottom:1px solid rgba(255,255,255,.06); z-index:10}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 24px}
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text); font-weight:700}
+    .brand .logo{width:28px; height:28px; border-radius:8px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow:0 6px 20px var(--ring)}
+    .nav a{color:var(--muted); text-decoration:none; font-weight:600}
+    .nav a:hover{color:#fff}
+
+    .hero{padding:96px 24px 56px}
+    .hero .grid{display:grid; grid-template-columns:1.2fr 1fr; gap:28px}
+    .title{font-size:clamp(28px,6vw,48px); line-height:1.1; margin:0 0 14px}
+    .lead{color:var(--muted); font-size:clamp(16px,2.5vw,18px)}
+    .cta{margin-top:20px; display:flex; gap:12px; flex-wrap:wrap}
+    .btn{appearance:none; border:none; cursor:pointer; padding:12px 18px; border-radius:12px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:10px}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:#081020; box-shadow:0 8px 24px var(--ring)}
+    .btn-secondary{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,.15)}
+
+    .card{background:linear-gradient(0deg, rgba(255,255,255,.04), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); box-shadow:var(--shadow)}
+
+    .showcase{position:relative; padding:22px; overflow:hidden}
+    .blob{position:absolute; inset:-100px auto auto -80px; width:400px; height:400px; background:radial-gradient(closest-side, rgba(14,165,233,.35), transparent 70%); filter:blur(30px); opacity:.8; pointer-events:none}
+    .code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:13.5px; color:#d1e7ff; background:#0a1226; border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:18px; overflow:auto}
+
+    .features{padding:12px 24px 64px}
+    .features .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .feature{padding:18px}
+    .feature h3{margin:0 0 6px}
+    .feature p{margin:0; color:var(--muted)}
+
+    .contact{padding:60px 24px}
+    form{display:grid; gap:12px}
+    input, textarea{background:#0a1226; color:var(--text); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:12px}
+    input:focus, textarea:focus{outline:2px solid var(--ring); border-color:transparent}
+
+    footer{color:var(--muted); border-top:1px solid rgba(255,255,255,.06); padding:26px 24px; text-align:center}
+
+    @media (max-width:900px){
+      .hero .grid{grid-template-columns:1fr}
+      .features .grid{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav container">
+      <a class="brand" href="#">
+        <span class="logo" aria-hidden="true"></span>
+        <span>Meine Seite</span>
+      </a>
+      <div class="links">
+        <a href="#features">Features</a>
+        &nbsp;•&nbsp;
+        <a href="#kontakt">Kontakt</a>
+        &nbsp;•&nbsp;
+        <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="grid">
+        <div>
+          <h1 class="title">Hallo, Welt! 👋</h1>
+          <p class="lead">Das ist eine minimalistische, schnelle, komplett eigenständige <strong>index.html</strong> – perfekt, um sie direkt auf <em>GitHub Pages</em> zu hosten. Passe Texte, Farben und Abschnitte nach Belieben an.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#features">Mehr erfahren</a>
+            <a class="btn btn-secondary" href="#kontakt">Schreib mir</a>
+          </div>
+        </div>
+        <div class="card showcase">
+          <div class="blob" hidden></div>
+          <pre class="code"><code>&lt;!-- Schnellstart --&gt;
+1. Neues Repo anlegen
+2. Diese index.html in das Repo legen
+3. GitHub Pages einschalten → fertig ✅</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features container">
+      <div class="grid">
+        <article class="card feature">
+          <h3>🚀 Schnell & leicht</h3>
+          <p>Nur eine Datei, keine Abhängigkeiten. Lädt blitzschnell – ideal als Visitenkarte oder Projektseite.</p>
+        </article>
+        <article class="card feature">
+          <h3>📱 Responsiv</h3>
+          <p>Sieht auf Handy, Tablet und Desktop gut aus. Das Layout passt sich automatisch an.</p>
+        </article>
+        <article class="card feature">
+          <h3>🎨 Einfach anpassbar</h3>
+          <p>Ändere Farben oben in <code>:root</code>, passe Texte & Abschnitte direkt in HTML an.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="kontakt" class="contact container card">
+      <h2>Kontakt</h2>
+      <p class="lead">Dieses Formular ist nur eine Demo – es sendet nichts ab, zeigt aber, wie ein echtes Formular aussehen kann.</p>
+      <form onsubmit="event.preventDefault(); alert('Danke! (Demo)');">
+        <label>
+          <span>Name</span>
+          <input required placeholder="Max Mustermann" />
+        </label>
+        <label>
+          <span>E‑Mail</span>
+          <input type="email" required placeholder="max@example.com" />
+        </label>
+        <label>
+          <span>Nachricht</span>
+          <textarea rows="4" required placeholder="Was gibt’s?"></textarea>
+        </label>
+        <button class="btn btn-primary" type="submit">Absenden</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> · Gemacht mit ❤ und GitHub Pages</div>
+  </footer>
+
+  <script>
+    // kleines JS: Copyright-Jahr aktualisieren & zarte Animation
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const blob = document.querySelector('.blob');
+    let raf;
+    function wobble(ts){
+      const t = ts/800;
+      const x = Math.sin(t)*30, y = Math.cos(t/1.3)*20;
+      blob.style.transform = `translate(${x}px, ${y}px)`;
+      raf = requestAnimationFrame(wobble);
+    }
+    // Falls 'red. Bewegungen' in Browser aktiv sind, Animation überspringen
+    if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      blob.hidden = false;
+      raf = requestAnimationFrame(wobble);
+    }
+    window.addEventListener('visibilitychange',()=>{
+      if(document.hidden) cancelAnimationFrame(raf); else raf = requestAnimationFrame(wobble);
+    });
+  </script>
+</body>
+</html>
